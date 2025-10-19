@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanjo Maru - Web Developer Portfolio</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#243644">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      background: linear-gradient(135deg, #f9f9f9, #eef2f7);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #243644, #0077ff);
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #d1d1d1;
+    }
+
+    section {
+      padding: 5rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 2.2rem;
+      color: #243644;
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 3rem 2rem;
+      max-width: 850px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .about-card h2 {
+      margin-bottom: 1rem;
+    }
+
+    .about-card p {
+      margin-bottom: 1.8rem;
+      color: #444;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #243644;
+      margin-bottom: 1.2rem;
+    }
+
+    .cv-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, #243644, #0077ff);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cv-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Project Cards */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .project-card h3 {
+      padding: 1rem 1.2rem 0.5rem;
+      font-size: 1.3rem;
+      color: #243644;
+    }
+
+    .project-card p {
+      padding: 0 1.2rem 1rem;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .project-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0 1.2rem 1rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-transform: uppercase;
+    }
+    .html { background: #e34c26; }
+    .css { background: #264de4; }
+    .js { background: #f7df1e; color: #000; }
+    .php { background: #777bb4; }
+    .wp { background: #21759b; }
+    .tailwind { background: #38bdf8; }
+    .jq { background: #0769ad; }
+    .divi { background: #ff6f61; }
+    .woo { background: #58966b; }
+    .elementor { background: #d87aee; }
+    .beaver { background: #ad900c; }
+    .foundation { background: #2199e8; }
+    .visualcomposer { background: #ff5a5f; }
+    .bootstrap { background: #563d7c; }
+
+    .project-card a {
+      display: inline-block;
+      margin: 0 1.2rem 1.2rem;
+      text-decoration: none;
+      font-weight: 700;
+      color: #0077ff;
+      transition: color 0.3s;
+      text-transform: uppercase;
+    }
+    .project-card a:hover {
+      color: #243644;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #243644, #1a2530);
+      color: #ccc;
+      margin-top: 4rem;
+    }
+    footer p {
+      margin-bottom: 1rem;
+    }
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s ease-out;
+    }
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Hi, I'm Sanjo Maru</h1>
+    <p>Crafting clean, functional, and responsive websites.</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about" data-animate>
+    <div class="about-card">
+      <img src="profile.webp" alt="Profile Photo" class="profile-pic">
+      <h2>About Me</h2>
+      <p>
+        I'm a web developer passionate about crafting modern, responsive, and user-friendly websites. 
+        My focus is creating digital experiences that help businesses and brands grow online.
+      </p>
+      <a href="https://www.dropbox.com/scl/fi/60humcukwjkmjp9kqgklo/sanjomaru-resume-latest.pdf?rlkey=ln2p11vhr706amqelk22umwer&e=1&st=c6fxyeqb&dl=0" target="_blank" class="cv-btn">Download CV</a>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <!-- Ustyle -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-ustyle.png" alt="Ustyle">
+        <h3>Ustyle</h3>
+        <p>Fashion retail website for Ustyle.</p>
+        <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag divi">DIVI</span><span class="tag woo">Woocommerce</span></div>
+        <a href="https://www.ustyle.com.au/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Irestore -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-irestore.png" alt="Irestore">
+        <h3>Irestore</h3>
+        <p>Furniture restoration business website.</p>
+        <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag divi">DIVI</span><span class="tag woo">Woocommerce</span></div>
+        <a href="https://irestorestuff.com/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Kingdom Cleaning -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-kingdom.png" alt="Kingdom Cleaning">
+        <h3>Kingdom Cleaning</h3>
+        <p>Cleaning service provider.</p>
+        <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag divi">DIVI</span></div>
+        <a href="https://kingdomkleaning.com.au/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Playfundwin -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-pfw.png" alt="Playfundwin">
+        <h3>Playfundwin</h3>
+        <p>Fundraising and raffle platform.</p>
+        <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag elementor">elementor</span></div>
+        <a href="https://playfundwin.com/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Onyxia -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-onyxia.png" alt="Onyxia">
+        <h3>Onyxia</h3>
+        <p>Online ticketing platform.</p>
+        <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag elementor">elementor</span></div>
+        <a href="https://onyxia.com/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Then Clean Maid -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-cleans.png" alt="Then Clean Maid">
+        <h3>Then Clean Maid</h3>
+        <p>Professional cleaning services.</p>
+        <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag beaver">beaver builder</span></div>
+        <a href="https://www.thatscleanmaids.com/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Ritetouch Maid -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-rite.png" alt="Ritetouch Maid">
+        <h3>Ritetouch Maid</h3>
+        <p>Maid and cleaning business website.</p>
+         <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag beaver">beaver builder</span></div>
+        <a href="https://ritetouchmaids.com/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Twin River -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-tweed.png" alt="Twin River">
+        <h3>Twin River</h3>
+        <p>Seafood retailer website.</p>
+         <div class="project-skills"><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag foundation">foundation</span></div>
+        <a href="https://tweedriverseafoods.com.au/" target="_blank">View Site</a>
+      </div>
+
+      <!-- The Fishhouse -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-fishouse.png" alt="The Fishhouse">
+        <h3>The Fishhouse</h3>
+        <p>Restaurant website.</p>
+         <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag beaver">beaver builder</span></div>
+        <a href="https://thefishhouse.com.au/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Fins -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-fins.png" alt="Fins">
+        <h3>Fins</h3>
+        <p>Fine dining seafood restaurant site.</p>
+           <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag visualcomposer">Visual Composer</span></div>
+        <a href="https://www.fins.com.au/" target="_blank">View Site</a>
+      </div>
+
+      <!-- Studio Fran -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-studiofran.png" alt="Studio Fran">
+        <h3>Studio Fran</h3>
+        <p>Interior design portfolio site.</p>
+          <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag elementor">elementor</span></div>
+        <a href="https://studiofran.com/" target="_blank">View Site</a>
+      </div>
+
+
+      <!-- Cleaning All Stars -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-allstar.png" alt="Cleaning All Stars">
+        <h3>Cleaning All Stars</h3>
+        <p>Cleaning service business site.</p>
+        <div class="project-skills"><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag bootstrap">Bootstrap</span></div>
+        <a href="https://cleaningallstars.com/" target="_blank">View Site</a>
+      </div>
+
+      <!-- 1wood Floors -->
+      <div class="project-card" data-animate>
+        <img src="img/scrn-1wood.png" alt="1wood Floors">
+        <h3>1wood Floors</h3>
+        <p>Wood flooring company site.</p>
+         <div class="project-skills"><span class="tag wp">WP</span><span class="tag html">Html</span><span class="tag css">CSS</span><span class="tag php">PHP</span><span class="tag js">JS/JQUERY</span><span class="tag visualcomposer">Visual Composer</span><span class="tag woo">Woocommerce</span></div>
+        <a href="https://1woodfloors.com/" target="_blank">View Site</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Sanjo Maru. All Rights Reserved.</p>
+    <div>
+      <a href="https://github.com/sanjomaru" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/sanjo-maru" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- Scroll animation script -->
+  <script>
+    const items = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+</html>
